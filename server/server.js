@@ -122,7 +122,20 @@ app.put('/api/more/users/:id/:listname/:lid', (req, res) => {
     });
 });
 
-
+// deleting a related listing from a listing
+app.delete('/api/more/listings/:id/relatedlistings/:id', (req, res) => {
+  // capture main listing id
+  // capture related listing id
+  // find listing in the related listings and remove it from db
+  // return response
+});
+// deleting a listing from the users favorites list
+app.delete('/api/more/users/:id/:listname/:lid', (req, res) => {
+  // capture user id
+  // capture list id
+  // find listing from users favorites list and remove it from db
+  // return response
+});
 
 app.listen(port, () => {
   console.log(`Server connected at http://localhost:${port}`);
