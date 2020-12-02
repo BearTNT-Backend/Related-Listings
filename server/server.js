@@ -50,6 +50,32 @@ app.get('/api/more/users/:id/favorites', (req, res) => {
     });
 });
 
+// creating new related listing for a listing
+app.put('/api/more/listings/:id', (req, res) => {
+  var listingId = {lId: req.params.id};
+  console.log(req.body);
+  var newRelatedListing = {
+    id: req.body.id,
+    type: req.body.type,
+    numOfBeds: req.body.numOfBeds,
+    superhost: req.body.superhost,
+    favorite: req.body.favorite,
+    rating: req.body.rating,
+    numOfRatings: req.body.numOfRatings,
+    description: req.body.description,
+    price: req.body.price
+  };
+
+  db.Listing.findOneAndUpdate(listingId, { $push: {relatedListings: newRelatedListing }})
+    .then(result => {
+      res.status(200).send(result);
+    })
+    .catch(err => {
+      console.log(err);
+    });
+});
+
+
 // adding a list to the users favorite lists
 app.put('/api/more/users/:id/favorites', (req, res) => {
   var userId = {uId: req.params.id};
