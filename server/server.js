@@ -123,11 +123,19 @@ app.put('/api/more/users/:id/:listname/:lid', (req, res) => {
 });
 
 // deleting a related listing from a listing
-app.delete('/api/more/listings/:id/relatedlistings/:id', (req, res) => {
-  // capture main listing id
-  // capture related listing id
-  // find listing in the related listings and remove it from db
-  // return response
+app.delete('/api/more/listings/:lid/relatedListings/:rid', (req, res) => {
+  var listingId = {lId: req.params.lid};
+  var relatedListingId = req.params.rid;
+  console.log(listingId, relatedListingId);
+  db.Listing.updateOne(listingId, { $pull: { relatedListings: { $elemMatch: {id: relatedListingId} }}})
+    .then(results => {
+      console.log(results);
+      res.status(200).send(results);
+    })
+    .catch(err => {
+      console.log(err);
+    });
+
 });
 // deleting a listing from the users favorites list
 app.delete('/api/more/users/:id/:listname/:lid', (req, res) => {
