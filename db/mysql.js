@@ -35,6 +35,9 @@ const Listing = mySqlDB.define('Listing', {
 Favorite.hasMany(Listing);
 Listing.belongsTo(Favorite);
 
+User.sync();
+Favorite.sync();
+Listing.sync();
 /*
 
 User
