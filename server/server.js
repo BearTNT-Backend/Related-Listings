@@ -50,6 +50,32 @@ app.get('/api/more/users/:id/favorites', (req, res) => {
     });
 });
 
+// creating new related listing for a listing
+app.put('/api/more/listings/:id', (req, res) => {
+  var listingId = {lId: req.params.id};
+  console.log(req.body);
+  var newRelatedListing = {
+    id: req.body.id,
+    type: req.body.type,
+    numOfBeds: req.body.numOfBeds,
+    superhost: req.body.superhost,
+    favorite: req.body.favorite,
+    rating: req.body.rating,
+    numOfRatings: req.body.numOfRatings,
+    description: req.body.description,
+    price: req.body.price
+  };
+
+  db.Listing.findOneAndUpdate(listingId, { $push: {relatedListings: newRelatedListing }})
+    .then(result => {
+      res.status(200).send(result);
+    })
+    .catch(err => {
+      console.log(err);
+    });
+});
+
+
 // adding a list to the users favorite lists
 app.put('/api/more/users/:id/favorites', (req, res) => {
   var userId = {uId: req.params.id};
@@ -96,7 +122,66 @@ app.put('/api/more/users/:id/:listname/:lid', (req, res) => {
     });
 });
 
+// deleting a related listing from a listing
+app.delete('/api/more/listings/:lid/relatedListings/:rid', (req, res) => {
+  var listingId = {lId: req.params.lid};
+  var relatedListingId = +req.params.rid;
+  db.Listing.find(listingId)
+    .then(results => {
+      let listings = results[0].relatedListings;
+      listings = listings.filter(obj => {
+        return obj.id !== relatedListingId;
+      });
+      return db.Listing.findOneAndUpdate(listingId, { relatedListings: listings});
+    })
+    .then(() => {
+      return db.Listing.findOne(listingId);
+    })
+    .then(results => {
+      res.status(200).send(results);
+    })
+    .catch(err => {
+      console.log(err);
+    });
+});
 
+// deleting a listing from favorites list
+app.delete('/api/more/users/:id/:listname/:lid', (req, res) => {
+  var userId = {uId: req.params.id};
+  var listName = req.params.listname;
+  var listingId = +req.params.lid;
+  listName = listName.split(/(?=[A-Z])/).join(' ');
+
+  db.User.findOne(userId)
+    .then(results => {
+      let ind;
+      let favorites = results.favorites.filter((obj, index) => {
+        if (obj.name === listName) {
+          ind = index;
+        }
+        return obj.name === listName;
+      });
+      let newFavorites = favorites[0];
+      let list = newFavorites.listings;
+      list = list.filter(item => {
+        return item !== listingId;
+      });
+      newFavorites.listings = list;
+      results.favorites[ind] = newFavorites;
+
+      return db.User.findOneAndUpdate(userId, { favorites: results.favorites });
+    })
+    .then(() => {
+      return db.User.findOne(userId);
+    })
+    .then(results => {
+      res.status(200).send(results);
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(404);
+    });
+});
 
 app.listen(port, () => {
   console.log(`Server connected at http://localhost:${port}`);

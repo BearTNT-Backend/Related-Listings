@@ -1,33 +1,19 @@
 # beartnt Places-to-Stay Module
 
-> This is the more places to stay module for a mock airbnb apartment listing page. This is the development repo for creating the portion of the page that displays more places to stay nearby the main listing on the page.
-
-## Related Projects
-
-  - Reservation module: https://github.com/Mormont-team-6/Reservation-Service
-  - Reviews module: https://github.com/Mormont-team-6/Customer-Reviews-Service
-  - Photo-carousel module: https://github.com/teamName/repo
-  - Places-to-stay proxy module: https://github.com/Mormont-team-6/places-to-stay-proxy
-
 ## Table of Contents
 
-1. [Usage](#Usage)
-1. [Requirements](#requirements)
-1. [Development](#development)
+1. [CRUD API](#CRUD)
+2. [Installation](#Installing)
 
-## Usage
+## CRUD API
 
-> To make changes run npm run build to start web-pack for front in react development.
-> To make and track changes on the server run npm start to start running the server with nodemon.
-
-## Requirements
-
-An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
-
-- Node 6.13.0
-- etc
-
-## Development
+*The below URL's should be prefixed with /api*
+Action | Method | URL
+-------|--------|----
+Create a new related listing for a listing | PUT | /more/listings/:id/
+Get related listings for a listing | GET | /more/listings/:id
+Update listings list in user's favorites | PUT | /more/users/:id/:listname/:lid
+Delete a listing from related listings | DELETE | /more/listings/:lid/relatedListings/:rid
 
 ### Installing Dependencies
 
