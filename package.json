@@ -22,9 +22,11 @@
     "express": "^4.17.1",
     "faker": "^5.1.0",
     "mongoose": "^5.10.13",
+    "mysql": "^2.18.1",
     "nodemon": "^2.0.6",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
+    "sequelize": "^6.3.5",
     "styled-components": "^5.2.1"
   },
   "devDependencies": {
