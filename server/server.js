@@ -126,7 +126,6 @@ app.put('/api/more/users/:id/:listname/:lid', (req, res) => {
 app.delete('/api/more/listings/:lid/relatedListings/:rid', (req, res) => {
   var listingId = {lId: req.params.lid};
   var relatedListingId = +req.params.rid;
-  console.log(listingId, relatedListingId);
   db.Listing.find(listingId)
     .then(results => {
       let listings = results[0].relatedListings;
@@ -145,14 +144,43 @@ app.delete('/api/more/listings/:lid/relatedListings/:rid', (req, res) => {
       console.log(err);
     });
 });
+
 // deleting a listing from favorites list
-app.delete('/api/more/users/:id/:listname', (req, res) => {
+app.delete('/api/more/users/:id/:listname/:lid', (req, res) => {
   var userId = {uId: req.params.id};
-  // capture list name
   var listName = req.params.listname;
-  console.log(userId, listName);
-  // find listing from users favorites list and remove it from db
-  // return response
+  var listingId = +req.params.lid;
+  listName = listName.split(/(?=[A-Z])/).join(' ');
+
+  db.User.findOne(userId)
+    .then(results => {
+      let ind;
+      let favorites = results.favorites.filter((obj, index) => {
+        if (obj.name === listName) {
+          ind = index;
+        }
+        return obj.name === listName;
+      });
+      let newFavorites = favorites[0];
+      let list = newFavorites.listings;
+      list = list.filter(item => {
+        return item !== listingId;
+      });
+      newFavorites.listings = list;
+      results.favorites[ind] = newFavorites;
+
+      return db.User.findOneAndUpdate(userId, { favorites: results.favorites });
+    })
+    .then(() => {
+      return db.User.findOne(userId);
+    })
+    .then(results => {
+      res.status(200).send(results);
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(404);
+    });
 });
 
 app.listen(port, () => {
