@@ -12,15 +12,17 @@ const User = mySqlDB.define('User', {
 });
 
 const Favorite = mySqlDB.define('Favorite', {
+
+});
+
+
+const FavoriteList = mySqlDB.define('FavoriteList', {
   name: Sequelize.STRING,
   photoUrl: Sequelize.STRING
 });
 
-User.hasMany(Favorite);
-Favorite.belongsTo(User);
 
 const Listing = mySqlDB.define('Listing', {
-  listingId: Sequelize.INTEGER,
   type: Sequelize.STRING,
   numOfBeds: Sequelize.INTEGER,
   photoUrl: Sequelize.STRING,
@@ -32,12 +34,46 @@ const Listing = mySqlDB.define('Listing', {
   price: Sequelize.FLOAT,
 });
 
-Favorite.hasMany(Listing);
-Listing.belongsTo(Favorite);
 
-User.sync();
-Favorite.sync();
-Listing.sync();
+const RelatedListing = mySqlDB.define('RelatedListing', {
+  type: Sequelize.STRING,
+  numOfBeds: Sequelize.INTEGER,
+  photoUrl: Sequelize.STRING,
+  superhost: Sequelize.BOOLEAN,
+  favorite: Sequelize.BOOLEAN,
+  rating: Sequelize.FLOAT,
+  numOfRatings: Sequelize.INTEGER,
+  description: Sequelize.STRING,
+  price: Sequelize.FLOAT,
+});
+
+User.hasMany(Favorite);
+Favorite.belongsTo(User);
+
+Favorite.hasMany(FavoriteList);
+FavoriteList.belongsTo(Favorite);
+
+FavoriteList.hasMany(Listing);
+Listing.belongsTo(FavoriteList);
+
+Listing.hasMany(RelatedListing);
+RelatedListing.belongsTo(Listing);
+
+mySqlDB.sync();
+
+module.exports = {
+  mySqlDB,
+  User,
+  Favorite,
+  FavoriteList,
+  Listing,
+  RelatedListing
+};
+// User.sync();
+// Favorite.sync();
+// FavoriteList.sync();
+// Listing.sync();
+// RelatedListing.sync();
 /*
 
 User
