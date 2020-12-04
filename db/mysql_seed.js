@@ -18,7 +18,7 @@ var houseTypes = ['Entire house', 'Hotel room', 'Entire apartment', 'Tent', 'Pri
 var relatedMaker = function(max) {
   var array = [];
 
-  while (array.length < 100) {
+  while (array.length < max) {
     array.push({
       type: houseTypes[Math.floor(Math.random() * houseTypes.length)],
       numOfBeds: Math.ceil(Math.random() * 5),
@@ -94,23 +94,51 @@ var userMaker = function(max) {
 };
 
 (async () => {
-  const favorites = await favoritesMaker(100);
-  const favListings = await favoritesListingMaker(100);
-  const listings = await listingsMaker(100);
-  const relatedListings = await relatedMaker(100);
-  const users = await userMaker(100);
+  const favorites = await favoritesMaker(50);
+  const favListings = await favoritesListingMaker(50);
+  const listings = await listingsMaker(50);
+  const users = await userMaker(50);
+  const relatedListings = await relatedMaker(100000);
+  const relatedListings2 = await relatedMaker(100000);
+  const relatedListings3 = await relatedMaker(100000);
+  const relatedListings4 = await relatedMaker(100000);
+  const relatedListings5 = await relatedMaker(100000);
+  const relatedListings6 = await relatedMaker(100000);
+  const relatedListings7 = await relatedMaker(100000);
+  const relatedListings8 = await relatedMaker(100000);
+  const relatedListings9 = await relatedMaker(100000);
+  const relatedListings10 = await relatedMaker(100000);
+
 
   const csv1 = new ObjectsToCsv(favorites);
   const csv2 = new ObjectsToCsv(favListings);
   const csv3 = new ObjectsToCsv(listings);
   const csv4 = new ObjectsToCsv(relatedListings);
-  const csv5 = new ObjectsToCsv(users);
+  const csv5 = new ObjectsToCsv(relatedListings2);
+  const csv6 = new ObjectsToCsv(relatedListings3);
+  const csv7 = new ObjectsToCsv(relatedListings4);
+  const csv8 = new ObjectsToCsv(relatedListings5);
+  const csv9 = new ObjectsToCsv(relatedListings6);
+  const csv10 = new ObjectsToCsv(relatedListings7);
+  const csv11 = new ObjectsToCsv(relatedListings8);
+  const csv12 = new ObjectsToCsv(relatedListings9);
+  const csv13 = new ObjectsToCsv(relatedListings10);
+  const csv14 = new ObjectsToCsv(users);
 
-  await csv1.toDisk(path.resolve(__dirname, './favorites.csv'));
-  await csv2.toDisk(path.resolve(__dirname, './favListings.csv'));
-  await csv3.toDisk(path.resolve(__dirname, './listings.csv'));
-  await csv4.toDisk(path.resolve(__dirname, './relatedListings.csv'));
-  await csv5.toDisk(path.resolve(__dirname, './users.csv'));
+  await csv1.toDisk(path.resolve(__dirname, './data.csv'));
+  await csv2.toDisk(path.resolve(__dirname, './data.csv'), {append: true, allColumns: true});
+  await csv3.toDisk(path.resolve(__dirname, './data.csv'), {append: true, allColumns: true});
+  await csv4.toDisk(path.resolve(__dirname, './data.csv'), {append: true, allColumns: true});
+  await csv5.toDisk(path.resolve(__dirname, './data.csv'), {append: true, allColumns: true});
+  await csv6.toDisk(path.resolve(__dirname, './data.csv'), {append: true, allColumns: true});
+  await csv7.toDisk(path.resolve(__dirname, './data.csv'), {append: true, allColumns: true});
+  await csv8.toDisk(path.resolve(__dirname, './data.csv'), {append: true, allColumns: true});
+  await csv9.toDisk(path.resolve(__dirname, './data.csv'), {append: true, allColumns: true});
+  await csv10.toDisk(path.resolve(__dirname, './data.csv'), {append: true, allColumns: true});
+  await csv11.toDisk(path.resolve(__dirname, './data.csv'), {append: true, allColumns: true});
+  await csv12.toDisk(path.resolve(__dirname, './data.csv'), {append: true, allColumns: true});
+  await csv13.toDisk(path.resolve(__dirname, './data.csv'), {append: true, allColumns: true});
+  await csv14.toDisk(path.resolve(__dirname, './data.csv'), {append: true, allColumns: true});
   console.log('CSV files made!');
 })();
 
