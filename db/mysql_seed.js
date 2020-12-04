@@ -1,5 +1,7 @@
 const faker = require('faker');
-const {mySqlDB, User, Favorite, FavoriteList, Listing, RelatedListing } = require('./mysql.js');
+// const {mySqlDB, User, Favorite, FavoriteList, Listing, RelatedListing } = require('./mysql.js');
+const path = require('path');
+const ObjectsToCsv = require('objects-to-csv');
 
 // setup id counters rId for related, id for listings, and uId for users
 // var id = 1;
@@ -16,7 +18,7 @@ var houseTypes = ['Entire house', 'Hotel room', 'Entire apartment', 'Tent', 'Pri
 var relatedMaker = function(max) {
   var array = [];
 
-  while (array.length < 12) {
+  while (array.length < 100) {
     array.push({
       type: houseTypes[Math.floor(Math.random() * houseTypes.length)],
       numOfBeds: Math.ceil(Math.random() * 5),
@@ -55,13 +57,13 @@ var listingsMaker = function(max) {
 // semi real potential list titles for users
 var favoriteTitles = ['Favorites', 'Beach Homes', 'Weekend Getaways', 'Ski Spots', 'Campsites', 'Good Nightlife'];
 
-// Makes list of id's to point to listings in one of the users lists
+// Makes user ids for favorites table
 var favoritesMaker = function(max) {
   var array = [];
   while (array.length < max) {
     var UserId = Math.ceil(Math.random() * 100);
-    if (!array.includes(UserId)) {
-      array.push(UserId);
+    if (!array.some(user => user.UserId === UserId)) {
+      array.push({UserId: UserId});
     }
   }
   return array;
@@ -91,17 +93,33 @@ var userMaker = function(max) {
   return array;
 };
 
-var favorites = favoritesMaker(100);
-var favListings = favoritesListingMaker(100);
-var listings = listingsMaker(100);
-var relatedListings = relatedMaker(100);
-var users = userMaker(100);
+(async () => {
+  const favorites = await favoritesMaker(100);
+  const favListings = await favoritesListingMaker(100);
+  const listings = await listingsMaker(100);
+  const relatedListings = await relatedMaker(100);
+  const users = await userMaker(100);
 
-User.bulkCreate(users);
-Listing.bulkCreate(listings);
-RelatedListing.bulkCreate(relatedListings);
-Favorite.bulkCreate(favorites);
-FavoriteList.bulkCreate(favListings);
+  const csv1 = new ObjectsToCsv(favorites);
+  const csv2 = new ObjectsToCsv(favListings);
+  const csv3 = new ObjectsToCsv(listings);
+  const csv4 = new ObjectsToCsv(relatedListings);
+  const csv5 = new ObjectsToCsv(users);
+
+  await csv1.toDisk(path.resolve(__dirname, './favorites.csv'));
+  await csv2.toDisk(path.resolve(__dirname, './favListings.csv'));
+  await csv3.toDisk(path.resolve(__dirname, './listings.csv'));
+  await csv4.toDisk(path.resolve(__dirname, './relatedListings.csv'));
+  await csv5.toDisk(path.resolve(__dirname, './users.csv'));
+  console.log('CSV files made!');
+})();
+
+
+// User.bulkCreate(users);
+// Favorite.bulkCreate(favorites);
+// FavoriteList.bulkCreate(favListings);
+// Listing.bulkCreate(listings);
+// RelatedListing.bulkCreate(relatedListings);
 
 
 

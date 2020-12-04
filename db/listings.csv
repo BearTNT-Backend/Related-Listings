@@ -1,0 +1,101 @@
+type,numOfBeds,photoUrl,superhost,rating,numOfRatings,description,price,FavoriteListId
+Hotel room,1,https://fec-photos-beartnt.s3-us-west-1.amazonaws.com/fec_pictures/Log-Cabin-Homes-Stunning-Log-Cabin.jpg,1,3.31,160,Totam eos aut est officia qui provident aut consequatur.,275,1
+Hotel room,2,https://fec-photos-beartnt.s3-us-west-1.amazonaws.com/fec_pictures/27514080792_6371181022_o.0.jpg,1,4.55,313,Similique quas porro ut est optio dolor.,107,5
+Hotel room,1,https://fec-photos-beartnt.s3-us-west-1.amazonaws.com/fec_pictures/969ae4bb-efd1-4fb9-a4e3-5cb3316dd3c9.jpg,,4.01,175,Quia quam dignissimos nostrum voluptatum.,139,6
+Entire house,5,https://fec-photos-beartnt.s3-us-west-1.amazonaws.com/fec_pictures/d55b10d433b07982c487b40d9e27420f.jpg,,0.09,226,Nulla sint occaecati non ipsum.,356,3
+Entire condominium,5,https://fec-photos-beartnt.s3-us-west-1.amazonaws.com/fec_pictures/fecc83ebe360dcf44233210ebf29f958.jpg,,4.62,287,Odit voluptatem id quia esse quia libero voluptas.,249,5
+Entire condominium,3,https://fec-photos-beartnt.s3-us-west-1.amazonaws.com/fec_pictures/amish-prefab-cabins-and-log-home-for-sale.jpg,,2.56,201,Et perferendis maiores et et blanditiis.,258,2
+Entire apartment,1,https://fec-photos-beartnt.s3-us-west-1.amazonaws.com/fec_pictures/1_p1zBnv11CSx_EII8sB9Uaw.jpeg,1,4.32,194,Impedit nihil ut.,207,5
+Private room,1,https://fec-photos-beartnt.s3-us-west-1.amazonaws.com/fec_pictures/Villa-Homes-Photos-by-Chris-web-2.jpg,1,4.03,450,Sed quia culpa.,76,4
+Private room,1,https://fec-photos-beartnt.s3-us-west-1.amazonaws.com/fec_pictures/Log-Cabin-Homes-Stunning-Log-Cabin.jpg,,1.18,223,Facere ab et perferendis commodi commodi similique excepturi animi tenetur.,385,4
+Hotel room,3,https://fec-photos-beartnt.s3-us-west-1.amazonaws.com/fec_pictures/harman-s-luxury-log-cabins.jpg,1,1.52,430,Nihil aut et maiores aut inventore sunt voluptate.,40,2
+Entire apartment,2,https://fec-photos-beartnt.s3-us-west-1.amazonaws.com/fec_pictures/27514080792_6371181022_o.0.jpg,1,2.66,29,Est pariatur magni optio sit.,355,2
+Private room,4,https://fec-photos-beartnt.s3-us-west-1.amazonaws.com/fec_pictures/42beb0625d2c8673ce3d8317d495454b.jpg,,2.89,362,Nostrum mollitia ea quia qui tempore et optio laborum.,396,2
+Tent,1,https://fec-photos-beartnt.s3-us-west-1.amazonaws.com/fec_pictures/031dcb9df9b7f59febe978bf8ccdcc3d.jpg,1,2.67,229,Nostrum doloribus et atque aliquid aut a.,371,1
+Private room,3,https://fec-photos-beartnt.s3-us-west-1.amazonaws.com/fec_pictures/detail-EXP-header.jpg,,1.59,23,Excepturi et harum sunt impedit veritatis ab placeat.,83,5
+Entire apartment,5,https://fec-photos-beartnt.s3-us-west-1.amazonaws.com/fec_pictures/log-cabin-master-result-standard.jpg,,4.83,62,Sit velit ducimus.,200,4
+Entire apartment,1,https://fec-photos-beartnt.s3-us-west-1.amazonaws.com/fec_pictures/Winchester-Homes-uncategorized-2710.jpg,1,3.85,478,Amet aut nobis quis.,68,3
+Entire house,5,https://fec-photos-beartnt.s3-us-west-1.amazonaws.com/fec_pictures/amish-prefab-cabins-and-log-home-for-sale.jpg,1,3.76,5,Perspiciatis voluptatem alias ea quis natus ullam consequatur.,437,5
+Entire house,4,https://fec-photos-beartnt.s3-us-west-1.amazonaws.com/fec_pictures/airbnb-tips-greenwich-village-apt.jpg,,0.93,196,Officia eligendi consequatur.,211,2
+Entire condominium,3,https://fec-photos-beartnt.s3-us-west-1.amazonaws.com/fec_pictures/d062d4a3c20ed27f4a8bf843a449dc68.jpg,1,2.83,150,Nihil omnis aspernatur ea nesciunt consequatur molestiae.,148,1
+Entire house,2,https://fec-photos-beartnt.s3-us-west-1.amazonaws.com/fec_pictures/d55b10d433b07982c487b40d9e27420f.jpg,1,1.02,147,Vel quia quia dolorem dolores voluptatem harum.,75,2
+Hotel room,4,https://fec-photos-beartnt.s3-us-west-1.amazonaws.com/fec_pictures/d062d4a3c20ed27f4a8bf843a449dc68.jpg,,3.41,383,Et nemo quis voluptas.,405,4
+Entire house,5,https://fec-photos-beartnt.s3-us-west-1.amazonaws.com/fec_pictures/blueground-apartment-2-2-2.jpg,,1.20,327,Architecto dignissimos reiciendis esse perspiciatis id.,479,2
+Private room,4,https://fec-photos-beartnt.s3-us-west-1.amazonaws.com/fec_pictures/amish-prefab-cabins-and-log-home-for-sale.jpg,,3.97,331,Velit iure in quae sint illum et nobis.,205,5
+Hotel room,4,https://fec-photos-beartnt.s3-us-west-1.amazonaws.com/fec_pictures/Villa-Homes-Photos-by-Chris-web-2.jpg,1,4.09,143,Quia totam veniam.,426,3
+Entire house,4,https://fec-photos-beartnt.s3-us-west-1.amazonaws.com/fec_pictures/08cd1c223709821d4833dd004e4d35e2-p_e.jpg,1,3.23,293,Fugiat qui porro.,332,3
+Tent,2,https://fec-photos-beartnt.s3-us-west-1.amazonaws.com/fec_pictures/amish-prefab-cabins-and-log-home-for-sale.jpg,1,1.04,437,Suscipit consequatur aliquid sint sint ut consequatur autem.,411,4
+Hotel room,3,https://fec-photos-beartnt.s3-us-west-1.amazonaws.com/fec_pictures/Log-Cabin-Homes-Stunning-Log-Cabin.jpg,1,0.46,252,Vitae aut quia quaerat temporibus quia enim laudantium.,93,5
+Entire apartment,3,https://fec-photos-beartnt.s3-us-west-1.amazonaws.com/fec_pictures/d55b10d433b07982c487b40d9e27420f.jpg,1,0.58,98,Sapiente dolore necessitatibus delectus odit ab ea.,162,1
+Entire apartment,1,https://fec-photos-beartnt.s3-us-west-1.amazonaws.com/fec_pictures/d55b10d433b07982c487b40d9e27420f.jpg,1,1.49,183,Eius voluptatem saepe et vel est et.,476,5
+Entire condominium,2,https://fec-photos-beartnt.s3-us-west-1.amazonaws.com/fec_pictures/Winchester-Homes-uncategorized-2710.jpg,,2.56,13,Harum quidem et quia consectetur quis cum quasi.,313,1
+Entire house,1,https://fec-photos-beartnt.s3-us-west-1.amazonaws.com/fec_pictures/log-cabin-master-result-standard.jpg,,4.16,433,Impedit eum ut molestiae praesentium.,436,6
+Entire apartment,2,https://fec-photos-beartnt.s3-us-west-1.amazonaws.com/fec_pictures/08cd1c223709821d4833dd004e4d35e2-p_e.jpg,1,2.78,407,Beatae quis tempora.,360,3
+Hotel room,4,https://fec-photos-beartnt.s3-us-west-1.amazonaws.com/fec_pictures/log-cabin-master-result-standard.jpg,,3.71,442,Facilis deleniti unde ullam commodi beatae.,492,2
+Hotel room,2,https://fec-photos-beartnt.s3-us-west-1.amazonaws.com/fec_pictures/08cd1c223709821d4833dd004e4d35e2-p_e.jpg,1,1.39,403,Ea culpa eligendi voluptas.,93,6
+Entire condominium,5,https://fec-photos-beartnt.s3-us-west-1.amazonaws.com/fec_pictures/960x0.jpg,,3.70,311,Inventore temporibus repudiandae voluptates.,490,1
+Hotel room,1,https://fec-photos-beartnt.s3-us-west-1.amazonaws.com/fec_pictures/969ae4bb-efd1-4fb9-a4e3-5cb3316dd3c9.jpg,,2.19,98,Neque ad eveniet architecto illum facilis ab eveniet.,78,3
+Private room,5,https://fec-photos-beartnt.s3-us-west-1.amazonaws.com/fec_pictures/harman-s-luxury-log-cabins.jpg,,4.64,480,Quis rem earum non non aut vitae.,354,5
+Entire condominium,1,https://fec-photos-beartnt.s3-us-west-1.amazonaws.com/fec_pictures/Villa-Homes-Photos-by-Chris-web-2.jpg,,4.18,295,Minima saepe esse molestiae qui.,382,6
+Entire apartment,1,https://fec-photos-beartnt.s3-us-west-1.amazonaws.com/fec_pictures/Airbnb-rental-tips.-Hostmaker-1-620x349.jpg,,0.30,109,Rem quasi illo laborum dolorem magnam voluptate iste.,348,2
+Entire apartment,3,https://fec-photos-beartnt.s3-us-west-1.amazonaws.com/fec_pictures/031dcb9df9b7f59febe978bf8ccdcc3d.jpg,1,2.72,374,Eveniet eos voluptas atque omnis dolor provident.,38,5
+Entire house,4,https://fec-photos-beartnt.s3-us-west-1.amazonaws.com/fec_pictures/d55b10d433b07982c487b40d9e27420f.jpg,,3.78,144,Eligendi rerum doloremque nobis.,53,1
+Hotel room,3,https://fec-photos-beartnt.s3-us-west-1.amazonaws.com/fec_pictures/031dcb9df9b7f59febe978bf8ccdcc3d.jpg,,3.61,228,Vero beatae eum voluptate deserunt possimus sint nisi.,466,2
+Entire house,3,https://fec-photos-beartnt.s3-us-west-1.amazonaws.com/fec_pictures/1_p1zBnv11CSx_EII8sB9Uaw.jpeg,,1.16,468,Sint id tempora voluptatibus et vel cum eveniet.,490,2
+Entire condominium,3,https://fec-photos-beartnt.s3-us-west-1.amazonaws.com/fec_pictures/969ae4bb-efd1-4fb9-a4e3-5cb3316dd3c9.jpg,,2.38,16,Rerum molestiae aut ut occaecati.,99,4
+Tent,4,https://fec-photos-beartnt.s3-us-west-1.amazonaws.com/fec_pictures/Donnas-Premier-Lodging-Cabin-Google.jpg,1,3.80,45,Voluptas et laborum illo quis magni fugiat rerum et.,368,2
+Entire condominium,1,https://fec-photos-beartnt.s3-us-west-1.amazonaws.com/fec_pictures/Log-Cabin-Homes-Stunning-Log-Cabin.jpg,1,4.75,410,Aliquid eum est repellendus.,202,5
+Entire condominium,1,https://fec-photos-beartnt.s3-us-west-1.amazonaws.com/fec_pictures/27514080792_6371181022_o.0.jpg,1,2.32,332,Necessitatibus et iste fuga autem ea.,248,5
+Tent,4,https://fec-photos-beartnt.s3-us-west-1.amazonaws.com/fec_pictures/Modular-Cabin3-scaled.jpg,1,4.86,169,Fuga quas atque fuga.,442,5
+Entire apartment,2,https://fec-photos-beartnt.s3-us-west-1.amazonaws.com/fec_pictures/blueground-apartment-2-2-2.jpg,1,4.17,30,Ex autem corporis qui voluptas et ratione doloremque et deleniti.,324,5
+Entire apartment,5,https://fec-photos-beartnt.s3-us-west-1.amazonaws.com/fec_pictures/27514080792_6371181022_o.0.jpg,1,1.48,123,Iste est tenetur consequatur natus tempore iure hic suscipit.,81,1
+Entire house,1,https://fec-photos-beartnt.s3-us-west-1.amazonaws.com/fec_pictures/Winchester-Homes-uncategorized-2710.jpg,1,0.23,180,Repellendus suscipit eveniet.,100,4
+Entire house,3,https://fec-photos-beartnt.s3-us-west-1.amazonaws.com/fec_pictures/detail-EXP-header.jpg,1,4.48,51,Minima omnis culpa cupiditate ullam perspiciatis sint rerum non animi.,139,6
+Private room,1,https://fec-photos-beartnt.s3-us-west-1.amazonaws.com/fec_pictures/airbnb-tips-greenwich-village-apt.jpg,1,2.06,273,Quos commodi quo a voluptas.,436,5
+Entire condominium,5,https://fec-photos-beartnt.s3-us-west-1.amazonaws.com/fec_pictures/08cd1c223709821d4833dd004e4d35e2-p_e.jpg,,4.44,175,Placeat ducimus voluptas possimus dolor eum officia dolorum consequuntur.,337,4
+Entire house,1,https://fec-photos-beartnt.s3-us-west-1.amazonaws.com/fec_pictures/031dcb9df9b7f59febe978bf8ccdcc3d.jpg,1,1.25,161,Id magnam vero saepe suscipit expedita asperiores ipsum aperiam.,103,1
+Hotel room,5,https://fec-photos-beartnt.s3-us-west-1.amazonaws.com/fec_pictures/d062d4a3c20ed27f4a8bf843a449dc68.jpg,1,3.40,174,Dolor doloremque enim debitis minima.,374,5
+Hotel room,1,https://fec-photos-beartnt.s3-us-west-1.amazonaws.com/fec_pictures/d55b10d433b07982c487b40d9e27420f.jpg,1,4.00,42,At similique minima est quia atque laudantium vel possimus est.,398,3
+Tent,1,https://fec-photos-beartnt.s3-us-west-1.amazonaws.com/fec_pictures/Donnas-Premier-Lodging-Cabin-Google.jpg,,3.65,266,Voluptatem iusto ad nihil officiis natus iusto et.,62,6
+Entire condominium,4,https://fec-photos-beartnt.s3-us-west-1.amazonaws.com/fec_pictures/1407953244000-177513283.jpg,1,0.19,353,Nihil quia ut hic recusandae vel.,37,5
+Entire apartment,3,https://fec-photos-beartnt.s3-us-west-1.amazonaws.com/fec_pictures/031dcb9df9b7f59febe978bf8ccdcc3d.jpg,1,1.33,461,Et ut labore qui neque mollitia rerum.,93,3
+Entire condominium,2,https://fec-photos-beartnt.s3-us-west-1.amazonaws.com/fec_pictures/Winchester-Homes-uncategorized-2710.jpg,,1.43,81,Nulla eaque et aliquid expedita sequi molestiae.,369,4
+Hotel room,2,https://fec-photos-beartnt.s3-us-west-1.amazonaws.com/fec_pictures/960x0.jpg,1,2.65,415,Rem corporis et.,74,4
+Hotel room,3,https://fec-photos-beartnt.s3-us-west-1.amazonaws.com/fec_pictures/fecc83ebe360dcf44233210ebf29f958.jpg,1,0.43,484,Recusandae impedit aut dolor corrupti.,93,2
+Hotel room,1,https://fec-photos-beartnt.s3-us-west-1.amazonaws.com/fec_pictures/Winchester-Homes-uncategorized-2710.jpg,1,0.27,379,Fugit optio vero sit.,231,5
+Tent,4,https://fec-photos-beartnt.s3-us-west-1.amazonaws.com/fec_pictures/031dcb9df9b7f59febe978bf8ccdcc3d.jpg,,1.94,229,Autem est quo.,69,4
+Private room,5,https://fec-photos-beartnt.s3-us-west-1.amazonaws.com/fec_pictures/960x0.jpg,,2.10,223,Optio aut quia cum rerum adipisci delectus.,451,2
+Hotel room,4,https://fec-photos-beartnt.s3-us-west-1.amazonaws.com/fec_pictures/Donnas-Premier-Lodging-Cabin-Google.jpg,,0.81,372,Adipisci sint aut exercitationem aperiam.,185,2
+Tent,3,https://fec-photos-beartnt.s3-us-west-1.amazonaws.com/fec_pictures/detail-EXP-header.jpg,1,4.66,308,Atque culpa quia et molestias.,376,4
+Tent,2,https://fec-photos-beartnt.s3-us-west-1.amazonaws.com/fec_pictures/harman-s-luxury-log-cabins.jpg,,3.63,347,Necessitatibus quia at sed accusantium aut aut vero quia.,391,3
+Hotel room,5,https://fec-photos-beartnt.s3-us-west-1.amazonaws.com/fec_pictures/fecc83ebe360dcf44233210ebf29f958.jpg,,1.86,52,Et aut sed quisquam eos quaerat sint.,464,6
+Tent,4,https://fec-photos-beartnt.s3-us-west-1.amazonaws.com/fec_pictures/27514080792_6371181022_o.0.jpg,,4.43,19,Laborum et ut id iusto.,297,5
+Entire apartment,1,https://fec-photos-beartnt.s3-us-west-1.amazonaws.com/fec_pictures/Villa-Homes-Photos-by-Chris-web-2.jpg,,4.85,111,Ut itaque qui est reiciendis.,143,6
+Tent,3,https://fec-photos-beartnt.s3-us-west-1.amazonaws.com/fec_pictures/Modular-Cabin3-scaled.jpg,1,1.79,254,Placeat sit atque.,300,4
+Tent,2,https://fec-photos-beartnt.s3-us-west-1.amazonaws.com/fec_pictures/031dcb9df9b7f59febe978bf8ccdcc3d.jpg,1,1.04,37,Vero eum ut aut maiores voluptas adipisci.,316,5
+Entire apartment,3,https://fec-photos-beartnt.s3-us-west-1.amazonaws.com/fec_pictures/Villa-Homes-Photos-by-Chris-web-2.jpg,,1.66,150,Possimus voluptatibus laudantium illum facere inventore fuga voluptatem atque architecto.,364,5
+Entire condominium,3,https://fec-photos-beartnt.s3-us-west-1.amazonaws.com/fec_pictures/airbnb-tips-greenwich-village-apt.jpg,,2.02,220,Aut consequatur error esse eos consequatur maxime.,183,5
+Private room,5,https://fec-photos-beartnt.s3-us-west-1.amazonaws.com/fec_pictures/Villa-Homes-Photos-by-Chris-web-2.jpg,1,2.67,72,Quis illum quas id cum qui consequatur corrupti.,484,6
+Tent,1,https://fec-photos-beartnt.s3-us-west-1.amazonaws.com/fec_pictures/amish-prefab-cabins-and-log-home-for-sale.jpg,1,0.82,303,Est qui id saepe ut.,314,1
+Hotel room,3,https://fec-photos-beartnt.s3-us-west-1.amazonaws.com/fec_pictures/d062d4a3c20ed27f4a8bf843a449dc68.jpg,,2.62,283,Molestiae quos voluptatem qui explicabo amet amet qui repudiandae.,294,3
+Hotel room,4,https://fec-photos-beartnt.s3-us-west-1.amazonaws.com/fec_pictures/log-cabin-master-result-standard.jpg,,3.31,148,Quisquam reiciendis numquam cum assumenda voluptatem nisi perferendis inventore.,303,5
+Entire condominium,3,https://fec-photos-beartnt.s3-us-west-1.amazonaws.com/fec_pictures/Donnas-Premier-Lodging-Cabin-Google.jpg,1,2.68,243,Ex aut harum.,398,6
+Private room,4,https://fec-photos-beartnt.s3-us-west-1.amazonaws.com/fec_pictures/08cd1c223709821d4833dd004e4d35e2-p_e.jpg,1,0.37,23,Voluptates minima debitis repellat voluptatum quis quia ullam.,226,1
+Entire house,2,https://fec-photos-beartnt.s3-us-west-1.amazonaws.com/fec_pictures/Villa-Homes-Photos-by-Chris-web-2.jpg,1,0.55,197,Quis repudiandae ratione maxime cum consequatur cum omnis.,191,5
+Entire condominium,3,https://fec-photos-beartnt.s3-us-west-1.amazonaws.com/fec_pictures/Log-Cabin-Homes-Stunning-Log-Cabin.jpg,,1.40,104,Ut voluptas perferendis quaerat aut sunt reprehenderit.,317,4
+Hotel room,3,https://fec-photos-beartnt.s3-us-west-1.amazonaws.com/fec_pictures/Donnas-Premier-Lodging-Cabin-Google.jpg,1,3.94,316,Quo quia itaque tempore consequatur at dolor.,379,2
+Private room,2,https://fec-photos-beartnt.s3-us-west-1.amazonaws.com/fec_pictures/Donnas-Premier-Lodging-Cabin-Google.jpg,1,3.56,413,Et doloribus aperiam mollitia ipsum.,293,4
+Private room,5,https://fec-photos-beartnt.s3-us-west-1.amazonaws.com/fec_pictures/969ae4bb-efd1-4fb9-a4e3-5cb3316dd3c9.jpg,,0.63,8,Aut iusto in excepturi vel saepe.,227,1
+Private room,4,https://fec-photos-beartnt.s3-us-west-1.amazonaws.com/fec_pictures/detail-EXP-header.jpg,1,3.24,84,Harum unde nesciunt expedita accusantium vero nesciunt facilis iste consequatur.,361,1
+Entire house,5,https://fec-photos-beartnt.s3-us-west-1.amazonaws.com/fec_pictures/detail-EXP-header.jpg,,4.02,478,Minus accusamus hic eos tempora ad adipisci dolorem fugit amet.,108,6
+Entire apartment,4,https://fec-photos-beartnt.s3-us-west-1.amazonaws.com/fec_pictures/detail-EXP-header.jpg,1,4.25,106,Nesciunt rerum aut accusantium et.,271,1
+Entire apartment,1,https://fec-photos-beartnt.s3-us-west-1.amazonaws.com/fec_pictures/1407953244000-177513283.jpg,1,1.44,118,Quo culpa numquam tempora.,460,2
+Hotel room,4,https://fec-photos-beartnt.s3-us-west-1.amazonaws.com/fec_pictures/1_p1zBnv11CSx_EII8sB9Uaw.jpeg,1,4.71,412,Voluptate exercitationem quam dignissimos placeat id in omnis.,295,6
+Hotel room,1,https://fec-photos-beartnt.s3-us-west-1.amazonaws.com/fec_pictures/Modular-Cabin3-scaled.jpg,1,3.62,360,Quos pariatur magnam atque ut ad.,380,5
+Entire condominium,1,https://fec-photos-beartnt.s3-us-west-1.amazonaws.com/fec_pictures/airbnb-tips-greenwich-village-apt.jpg,,3.74,448,Rem necessitatibus illo.,140,5
+Entire house,4,https://fec-photos-beartnt.s3-us-west-1.amazonaws.com/fec_pictures/Donnas-Premier-Lodging-Cabin-Google.jpg,1,1.23,41,Eum rem et.,105,1
+Entire apartment,1,https://fec-photos-beartnt.s3-us-west-1.amazonaws.com/fec_pictures/Donnas-Premier-Lodging-Cabin-Google.jpg,1,3.22,156,Voluptas est qui vel quas.,371,3
+Hotel room,2,https://fec-photos-beartnt.s3-us-west-1.amazonaws.com/fec_pictures/log-cabin-master-result-standard.jpg,1,2.48,377,Qui temporibus quidem vel quia ut ipsam omnis.,276,1
+Entire house,5,https://fec-photos-beartnt.s3-us-west-1.amazonaws.com/fec_pictures/amish-prefab-cabins-and-log-home-for-sale.jpg,,2.10,269,Iste voluptates iusto nihil illum modi ipsam omnis.,357,5
+Entire apartment,4,https://fec-photos-beartnt.s3-us-west-1.amazonaws.com/fec_pictures/42beb0625d2c8673ce3d8317d495454b.jpg,1,3.88,46,Debitis et occaecati natus praesentium unde ipsa.,431,3
+Entire apartment,5,https://fec-photos-beartnt.s3-us-west-1.amazonaws.com/fec_pictures/Log-Cabin-Homes-Stunning-Log-Cabin.jpg,,1.10,12,Et cumque eos enim ea nostrum possimus dolorem veritatis.,394,5
