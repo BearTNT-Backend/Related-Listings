@@ -13,6 +13,9 @@ var photoUrls = ['https://fec-photos-beartnt.s3-us-west-1.amazonaws.com/fec_pict
 // house types reflecting real airbnb house types
 var houseTypes = ['Entire house', 'Hotel room', 'Entire apartment', 'Tent', 'Private room', 'Entire condominium'];
 
+// semi real potential list titles for users
+var favoriteTitles = ['Favorites', 'Beach Homes', 'Weekend Getaways', 'Ski Spots', 'Campsites', 'Good Nightlife'];
+
 const relatedListingsWrite = fs.createWriteStream('db/relatedListings.csv');
 //relatedListingsWrite.write('type,numOfBeds,photoUrl,superhost,rating,numOfRatings,description, price,ListingId\n', 'utf8');
 // makes an array of related listings
@@ -50,9 +53,6 @@ for (let i = 0; i <= 10000; i++) {
   obj.FavoriteListId = Math.ceil(Math.random() * 6)
   listingsWrite.write(`${obj.id},${obj.type},${obj.numOfBeds},${obj.photoUrl},${obj.superhost},${obj.rating},${obj.numOfRatings},${obj.description},${obj.price},${obj.FavoriteListId}\n`, 'utf8');
 }
-
-// semi real potential list titles for users
-var favoriteTitles = ['Favorites', 'Beach Homes', 'Weekend Getaways', 'Ski Spots', 'Campsites', 'Good Nightlife'];
 
 const favoritesWrite = fs.createWriteStream('db/favorites.csv');
 //favoritesWrite.write('UserId\n', 'utf8')
