@@ -28,7 +28,7 @@ for (let i = 0; i <= 10000000; i++) {
   obj.numOfRatings = faker.random.number({'min': 1, 'max': 500}),
   obj.description = faker.lorem.sentence(),
   obj.price = faker.random.number({'min': 30, 'max': 500}),
-  obj.ListingId = faker.random.number({'min': 0, 'max': 100})
+  obj.ListingId = faker.random.number({'min': 0, 'max': 1000})
   relatedListingsWrite.write(`${obj.id},${obj.type},${obj.numOfBeds},${obj.photoUrl},${obj.superhost},${obj.rating},${obj.numOfRatings},${obj.description},${obj.price},${obj.ListingId}\n`, 'utf8');
 }
 
@@ -48,7 +48,7 @@ for (let i = 0; i <= 10000; i++) {
   obj.description = faker.lorem.sentence(),
   obj.price = faker.random.number({'min': 30, 'max': 500}),
   obj.FavoriteListId = Math.ceil(Math.random() * 6)
-  listingsWrite.write(`${obj.id},${obj.type},${obj.numOfBeds},${obj.photoUrl},${obj.superhost},${obj.rating},${obj.numOfRatings},${obj.description},${obj.price},${obj.ListingId}\n`, 'utf8');
+  listingsWrite.write(`${obj.id},${obj.type},${obj.numOfBeds},${obj.photoUrl},${obj.superhost},${obj.rating},${obj.numOfRatings},${obj.description},${obj.price},${obj.FavoriteListId}\n`, 'utf8');
 }
 
 // semi real potential list titles for users
@@ -73,9 +73,9 @@ for (let i = 0; i <= 500; i++) {
   obj.id = i;
   obj.name = favoriteTitles[i],
   obj.photoUrl = photoUrls[Math.floor(Math.random() * photoUrls.length)],
-  obj.listingId = faker.random.number({'min': 0, 'max': 100})
+  obj.ListingId = faker.random.number({'min': 0, 'max': 100})
 
-  favoriteListingWrite.write(`${obj.id},${obj.UserId}${obj.photoUrl}${obj.listingId}\n`, 'utf8');
+  favoriteListingWrite.write(`${obj.id},${obj.name}${obj.photoUrl}${obj.ListingId}\n`, 'utf8');
 }
 
 const userWrite = fs.createWriteStream('db/users.csv');
