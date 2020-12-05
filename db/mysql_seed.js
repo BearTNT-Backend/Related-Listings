@@ -14,11 +14,12 @@ var photoUrls = ['https://fec-photos-beartnt.s3-us-west-1.amazonaws.com/fec_pict
 var houseTypes = ['Entire house', 'Hotel room', 'Entire apartment', 'Tent', 'Private room', 'Entire condominium'];
 
 const relatedListingsWrite = fs.createWriteStream('db/relatedListings.csv');
-relatedListingsWrite.write('type,numOfBeds,photoUrl,superhost,rating,numOfRatings,description, price,ListingId\n', 'utf8');
+//relatedListingsWrite.write('type,numOfBeds,photoUrl,superhost,rating,numOfRatings,description, price,ListingId\n', 'utf8');
 // makes an array of related listings
 
 for (let i = 0; i <= 10000000; i++) {
   let obj = {}
+  obj.id = i;
   obj.type = houseTypes[Math.floor(Math.random() * houseTypes.length)],
   obj.numOfBeds = Math.ceil(Math.random() * 5),
   obj.photoUrl = photoUrls[Math.floor(Math.random() * photoUrls.length)],
@@ -28,15 +29,16 @@ for (let i = 0; i <= 10000000; i++) {
   obj.description = faker.lorem.sentence(),
   obj.price = faker.random.number({'min': 30, 'max': 500}),
   obj.ListingId = faker.random.number({'min': 0, 'max': 100})
-  relatedListingsWrite.write(`${obj.type},${obj.numOfBeds},${obj.photoUrl},${obj.superhost},${obj.rating},${obj.numOfRatings},${obj.description},${obj.price},${obj.ListingId}\n`, 'utf8');
+  relatedListingsWrite.write(`${obj.id},${obj.type},${obj.numOfBeds},${obj.photoUrl},${obj.superhost},${obj.rating},${obj.numOfRatings},${obj.description},${obj.price},${obj.ListingId}\n`, 'utf8');
 }
 
 const listingsWrite = fs.createWriteStream('db/listings.csv');
-listingsWrite.write('type,numOfBeds,photoUrl,superhost,rating,numOfRatings,description,price,FavoriteListId\n', 'utf8')
+//listingsWrite.write('type,numOfBeds,photoUrl,superhost,rating,numOfRatings,description,price,FavoriteListId\n', 'utf8')
 // Makes max listing primary entries
 
-for (let i = 0; i <= 1000000; i++) {
+for (let i = 0; i <= 10000; i++) {
   let obj = {}
+  obj.id = 1;
   obj.type = houseTypes[Math.floor(Math.random() * houseTypes.length)],
   obj.numOfBeds = Math.ceil(Math.random() * 5),
   obj.photoUrl = photoUrls[Math.floor(Math.random() * photoUrls.length)],
@@ -46,40 +48,43 @@ for (let i = 0; i <= 1000000; i++) {
   obj.description = faker.lorem.sentence(),
   obj.price = faker.random.number({'min': 30, 'max': 500}),
   obj.FavoriteListId = Math.ceil(Math.random() * 6)
-  relatedListingsWrite.write(`${obj.type},${obj.numOfBeds},${obj.photoUrl},${obj.superhost},${obj.rating},${obj.numOfRatings},${obj.description},${obj.price},${obj.ListingId}\n`, 'utf8');
+  listingsWrite.write(`${obj.id},${obj.type},${obj.numOfBeds},${obj.photoUrl},${obj.superhost},${obj.rating},${obj.numOfRatings},${obj.description},${obj.price},${obj.ListingId}\n`, 'utf8');
 }
 
 // semi real potential list titles for users
 var favoriteTitles = ['Favorites', 'Beach Homes', 'Weekend Getaways', 'Ski Spots', 'Campsites', 'Good Nightlife'];
 
 const favoritesWrite = fs.createWriteStream('db/favorites.csv');
-favoritesWrite.write('UserId\n', 'utf8')
+//favoritesWrite.write('UserId\n', 'utf8')
 // Makes user ids for favorites table
 for (let i = 0; i <= 500; i++) {
   let obj = {};
+  obj.id = i;
   obj.UserId = i;
-  favoritesWrite.write(`${obj.UserId}\n`, 'utf8');
+  favoritesWrite.write(`${obj.id},${obj.UserId}\n`, 'utf8');
 }
 
 const favoriteListingWrite = fs.createWriteStream('db/favListings.csv');
-favoriteListingWrite.write('name,photoUrl,listingId\n');
+//favoriteListingWrite.write('name,photoUrl,listingId\n');
 // Makes a list of favorites that each contain a title, url, and listing id
 
 for (let i = 0; i <= 500; i++) {
   let obj = {};
+  obj.id = i;
   obj.name = favoriteTitles[i],
   obj.photoUrl = photoUrls[Math.floor(Math.random() * photoUrls.length)],
   obj.listingId = faker.random.number({'min': 0, 'max': 100})
 
-  favoriteListingWrite.write(`${obj.UserId}${obj.photoUrl}${obj.listingId}\n`, 'utf8');
+  favoriteListingWrite.write(`${obj.id},${obj.UserId}${obj.photoUrl}${obj.listingId}\n`, 'utf8');
 }
 
 const userWrite = fs.createWriteStream('db/users.csv');
-userWrite.write('userName\n', 'utf8');
+//userWrite.write('userName\n', 'utf8');
 // Makes max(users) storing username and an array of all of their favorite lists
 for (let i = 0; i <= 500; i++) {
   let obj = {};
+  obj.id = i;
   obj.userName = faker.internet.userName();
-  userWrite.write(`${obj.userName}\n`, 'utf8');
+  userWrite.write(`${obj.id},${obj.userName}\n`, 'utf8');
 }
 
