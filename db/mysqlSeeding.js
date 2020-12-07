@@ -7,7 +7,6 @@ const db = mysql.createConnection({
   user: 'root',
   password: 'sudoroot',
   database: 'moreListings'
-  //dialect: 'mariadb'
 });
 
 db.on('error', (err) => {
@@ -32,7 +31,7 @@ db.query(sql1, (err, result) => {
     console.log(result);
   }
 });
-// (type,numOfBeds,photoUrl,superhost,rating,numOfRatings,description,price,FavoriteListId)
+
 const sql2 = `LOAD DATA LOCAL INFILE './db/favListings.csv' INTO TABLE favoriteLists FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n';`;
 db.query(sql2, (err, result) => {
   if (err) {
@@ -41,7 +40,7 @@ db.query(sql2, (err, result) => {
     console.log(result);
   }
 });
-// insert into table
+
 const sql3 = `LOAD DATA LOCAL INFILE './db/listings.csv' INTO TABLE Listings FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n';`;
 db.query(sql3, (err, result) => {
   if (err) {
@@ -51,7 +50,6 @@ db.query(sql3, (err, result) => {
   }
 });
 
-// insert rows into table
 const sql4 = `LOAD DATA LOCAL INFILE './db/relatedListings.csv' INTO TABLE relatedListings FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n';`;
 db.query(sql4, (err, result) => {
   if (err) {

@@ -70,38 +70,3 @@ module.exports = {
   Listing,
   RelatedListing
 };
-// User.sync();
-// Favorite.sync();
-// FavoriteList.sync();
-// Listing.sync();
-// RelatedListing.sync();
-/*
-
-User
-{
-  user_name: String,
-  favorites: Array // array of objects that look like below
-}
-
-Favorite
- favorite = {
- name: 'list name',
- photoUrl: 'photo url for the first listing in the list'
- listings: [*listing id's*]
-
-Listing
- {
-   listingId: 1,
-   type: 'Entire house',
-   numOfBeds: 3,
-   photoUrl: 'somephotourl.com',
-   superhost: true,
-   favorite: false,
-   rating: 4.5,
-   numOfRatings: 56,
-   description: 'a description of the place',
-   price: 200,
- }
-
-
-*/
