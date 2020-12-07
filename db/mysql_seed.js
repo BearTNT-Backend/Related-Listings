@@ -31,8 +31,8 @@ for (let i = 0; i <= 10000000; i++) {
   obj.numOfRatings = faker.random.number({'min': 1, 'max': 500});
   obj.description = faker.lorem.sentence();
   obj.price = faker.random.number({'min': 30, 'max': 500});
-  obj.ListingId = faker.random.number({'min': 0, 'max': 10000});
-  relatedListingsWrite.write(`${obj.id},${obj.type},${obj.numOfBeds},${obj.photoUrl},${obj.superhost},${obj.rating},${obj.numOfRatings},${obj.description},${obj.price},${obj.ListingId}\n`, 'utf8');
+  obj.listID = faker.random.number({'min': 0, 'max': 10000});
+  relatedListingsWrite.write(`${obj.id},${obj.type},${obj.numOfBeds},${obj.photoUrl},${obj.superhost},${obj.rating},${obj.numOfRatings},${obj.description},${obj.price},${obj.listID}\n`, 'utf8');
 }
 
 const listingsWrite = fs.createWriteStream('db/listings.csv');
@@ -50,8 +50,8 @@ for (let i = 0; i <= 10000; i++) {
   obj.numOfRatings = faker.random.number({'min': 1, 'max': 500});
   obj.description = faker.lorem.sentence();
   obj.price = faker.random.number({'min': 30, 'max': 500});
-  obj.FavoriteListId = faker.random.number({'min': 0, 'max': 500});
-  listingsWrite.write(`${obj.id},${obj.type},${obj.numOfBeds},${obj.photoUrl},${obj.superhost},${obj.rating},${obj.numOfRatings},${obj.description},${obj.price},${obj.FavoriteListId}\n`, 'utf8');
+  obj.favListID = faker.random.number({'min': 0, 'max': 500});
+  listingsWrite.write(`${obj.id},${obj.type},${obj.numOfBeds},${obj.photoUrl},${obj.superhost},${obj.rating},${obj.numOfRatings},${obj.description},${obj.price},${obj.favListID}\n`, 'utf8');
 }
 
 const favoritesWrite = fs.createWriteStream('db/favorites.csv');
@@ -60,8 +60,8 @@ const favoritesWrite = fs.createWriteStream('db/favorites.csv');
 for (let i = 0; i <= 500; i++) {
   let obj = {};
   obj.id = i;
-  obj.UserId = faker.random.number({'min': 0, 'max': 500});
-  favoritesWrite.write(`${obj.id},${obj.UserId}\n`, 'utf8');
+  obj.uID = faker.random.number({'min': 0, 'max': 500});
+  favoritesWrite.write(`${obj.id},${obj.uID}\n`, 'utf8');
 }
 
 const favoriteListingWrite = fs.createWriteStream('db/favListings.csv');
@@ -73,8 +73,8 @@ for (let i = 0; i <= 500; i++) {
   obj.id = i;
   obj.name = favoriteTitles[Math.floor(Math.random() * favoriteTitles.length)];
   obj.photoUrl = photoUrls[Math.floor(Math.random() * photoUrls.length)];
-  obj.FavoriteId = faker.random.number({'min': 0, 'max': 500});
-  favoriteListingWrite.write(`${obj.id},${obj.name},${obj.photoUrl}\n`, 'utf8');
+  obj.favID = faker.random.number({'min': 0, 'max': 500});
+  favoriteListingWrite.write(`${obj.id},${obj.name},${obj.photoUrl},${obj.favID}\n`, 'utf8');
 }
 
 const userWrite = fs.createWriteStream('db/users.csv');

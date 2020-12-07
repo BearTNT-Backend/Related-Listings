@@ -12,13 +12,14 @@ const User = mySqlDB.define('User', {
 });
 
 const Favorite = mySqlDB.define('Favorite', {
-
+  uID: Sequelize.INTEGER
 });
 
 
 const FavoriteList = mySqlDB.define('FavoriteList', {
   name: Sequelize.STRING,
-  photoUrl: Sequelize.STRING
+  photoUrl: Sequelize.STRING,
+  favID: Sequelize.INTEGER
 });
 
 
@@ -31,6 +32,7 @@ const Listing = mySqlDB.define('Listing', {
   numOfRatings: Sequelize.INTEGER,
   description: Sequelize.STRING,
   price: Sequelize.FLOAT,
+  favListID: Sequelize.INTEGER
 });
 
 
@@ -43,6 +45,7 @@ const RelatedListing = mySqlDB.define('RelatedListing', {
   numOfRatings: Sequelize.INTEGER,
   description: Sequelize.STRING,
   price: Sequelize.FLOAT,
+  listID: Sequelize.INTEGER
 });
 
 User.hasMany(Favorite);
