@@ -2,5 +2,6 @@
 /public/dist/bundle.js
 *.pem
 db/*.csv
+*.log
 
 
