@@ -1,29 +1,35 @@
+// This requires a database called moreListings to already be
+//   in MySQL or MariaDB
+// If using MySQL, change dialect on line 10 to MySQL
+// You will also need to change the username and password on line 8
+//   'root' and 'sudoroot' currently
+
 const { Sequelize } = require('sequelize');
 
-const mySqlDB = new Sequelize('moreListings', 'root', 'sudoroot',
+const db = new Sequelize('moreListings', 'root', 'sudoroot',
   {
     host: 'localhost',
     dialect: 'mariadb'
   }
 );
 
-const User = mySqlDB.define('User', {
+const User = db.define('User', {
   userName: Sequelize.STRING
 });
 
-const Favorite = mySqlDB.define('Favorite', {
+const Favorite = db.define('Favorite', {
   uID: Sequelize.INTEGER
 });
 
 
-const FavoriteList = mySqlDB.define('FavoriteList', {
+const FavoriteList = db.define('FavoriteList', {
   name: Sequelize.STRING,
   photoUrl: Sequelize.STRING,
   favID: Sequelize.INTEGER
 });
 
 
-const Listing = mySqlDB.define('Listing', {
+const Listing = db.define('Listing', {
   type: Sequelize.STRING,
   numOfBeds: Sequelize.INTEGER,
   photoUrl: Sequelize.STRING,
@@ -36,7 +42,7 @@ const Listing = mySqlDB.define('Listing', {
 });
 
 
-const RelatedListing = mySqlDB.define('RelatedListing', {
+const RelatedListing = db.define('RelatedListing', {
   type: Sequelize.STRING,
   numOfBeds: Sequelize.INTEGER,
   photoUrl: Sequelize.STRING,
@@ -60,10 +66,10 @@ Listing.belongsTo(FavoriteList);
 Listing.hasMany(RelatedListing);
 RelatedListing.belongsTo(Listing);
 
-mySqlDB.sync();
+db.sync();
 
 module.exports = {
-  mySqlDB,
+  db,
   User,
   Favorite,
   FavoriteList,
