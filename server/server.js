@@ -191,9 +191,10 @@ app.get('/listing/*', (req, res) => {
 
 // *********** SDC ********** //
 
+// getting the related listings for a specific listing
 app.get('/api/more/listings/:id', (req, res) => {
-  let listingId = {id: +req.params.id};
-  db.Listing.findOne(listingId)
+  let listingId = {listID: +req.params.id};
+  db.RelatedListing.findAll({ where: listingId, limit: 12})
     .then(results => {
       res.status(200).send(results);
     })
