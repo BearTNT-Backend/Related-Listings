@@ -204,6 +204,19 @@ app.get('/api/more/listings/:id', (req, res) => {
     });
 });
 
+// get single related listing using related listing id
+app.get('/api/more/relatedListings/:id', (req, res) => {
+  console.log(req.params.id);
+  db.RelatedListing.findOne({ where: { id: +req.params.id }})
+    .then(results => {
+      res.status(200).send(results);
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(404);
+    })
+})
+
 // creating new related listing for a listing
 app.post('/api/more/listings/:id', (req, res) => {
   console.log(req.body);
@@ -211,7 +224,6 @@ app.post('/api/more/listings/:id', (req, res) => {
     type: req.body.type,
     numOfBeds: req.body.numOfBeds,
     superhost: req.body.superhost,
-    favorite: req.body.favorite,
     rating: req.body.rating,
     numOfRatings: req.body.numOfRatings,
     description: req.body.description,
@@ -227,8 +239,23 @@ app.post('/api/more/listings/:id', (req, res) => {
       console.log(err);
     });
 });
-// app.put();
-// app.delete();
+
+// updating a related listing to be a superhost
+app.put('/api/more/relatedListings/:id', (req, res) => {
+  db.RelatedListing.update({ superhost: true }, {
+    where: { id: +req.params.id}
+  })
+    .then(result => {
+      console.log(result);
+      res.status(200).send(result);
+    })
+});
+
+// deleting a relatedListing
+// app.delete('/api/more/listings/:lid/relatedListings/:rid', (req, res) => {
+  // delete related listing with the rid where listID = lid
+  // db.RelatedListing
+//});
 
 app.listen(port, () => {
   console.log(`Server connected at http://localhost:${port}`);
