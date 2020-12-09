@@ -237,6 +237,7 @@ app.post('/api/more/listings/:id', (req, res) => {
     })
     .catch(err => {
       console.log(err);
+      res.status(404);
     });
 });
 
@@ -249,13 +250,25 @@ app.put('/api/more/relatedListings/:id', (req, res) => {
       console.log(result);
       res.status(200).send(result);
     })
+    .catch(err => {
+      console.log(err);
+      res.status(404);
+    });
 });
 
 // deleting a relatedListing
-// app.delete('/api/more/listings/:lid/relatedListings/:rid', (req, res) => {
-  // delete related listing with the rid where listID = lid
-  // db.RelatedListing
-//});
+app.delete('/api/more/listings/:lid/relatedListings/:rid', (req, res) => {
+  //delete related listing with the rid where listID = lid
+  db.RelatedListing.destroy({ where: { id: +req.params.rid, listID: +req.params.lid }})
+    .then(result => {
+      console.log(result);
+      res.sendStatus(200).send(result);
+    })
+    .catch(err => {
+      console.log(err);
+      res.sendStatus(404);
+    });
+});
 
 app.listen(port, () => {
   console.log(`Server connected at http://localhost:${port}`);
