@@ -203,7 +203,30 @@ app.get('/api/more/listings/:id', (req, res) => {
       res.status(404);
     });
 });
-// app.post();
+
+// creating new related listing for a listing
+app.post('/api/more/listings/:id', (req, res) => {
+  console.log(req.body);
+  let newRelatedListing = {
+    type: req.body.type,
+    numOfBeds: req.body.numOfBeds,
+    superhost: req.body.superhost,
+    favorite: req.body.favorite,
+    rating: req.body.rating,
+    numOfRatings: req.body.numOfRatings,
+    description: req.body.description,
+    price: req.body.price,
+    listID: +req.params.id
+  };
+
+  db.RelatedListing.create(newRelatedListing)
+    .then(result => {
+      res.status(200).send(result);
+    })
+    .catch(err => {
+      console.log(err);
+    });
+});
 // app.put();
 // app.delete();
 
