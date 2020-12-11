@@ -25,7 +25,8 @@ const Favorite = db.define('Favorite', {
 const FavoriteList = db.define('FavoriteList', {
   name: Sequelize.STRING,
   photoUrl: Sequelize.STRING,
-  favID: Sequelize.INTEGER
+  favID: Sequelize.INTEGER,
+  uID: Sequelize.INTEGER
 });
 
 
@@ -34,6 +35,7 @@ const Listing = db.define('Listing', {
   numOfBeds: Sequelize.INTEGER,
   photoUrl: Sequelize.STRING,
   superhost: Sequelize.BOOLEAN,
+  favorite: Sequelize.BOOLEAN,
   rating: Sequelize.FLOAT,
   numOfRatings: Sequelize.INTEGER,
   description: Sequelize.STRING,
@@ -47,6 +49,7 @@ const RelatedListing = db.define('RelatedListing', {
   numOfBeds: Sequelize.INTEGER,
   photoUrl: Sequelize.STRING,
   superhost: Sequelize.BOOLEAN,
+  favorite: Sequelize.BOOLEAN,
   rating: Sequelize.FLOAT,
   numOfRatings: Sequelize.INTEGER,
   description: Sequelize.STRING,
@@ -56,6 +59,9 @@ const RelatedListing = db.define('RelatedListing', {
 
 User.hasMany(Favorite);
 Favorite.belongsTo(User);
+
+User.hasMany(FavoriteList);
+FavoriteList.belongsTo(User);
 
 Favorite.hasMany(FavoriteList);
 FavoriteList.belongsTo(Favorite);
