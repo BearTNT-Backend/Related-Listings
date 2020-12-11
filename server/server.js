@@ -217,6 +217,36 @@ app.get('/api/more/relatedListings/:id', (req, res) => {
     })
 })
 
+// getting all of the users favorite lists
+app.get('/api/more/users/:id/favorites', (req, res) => {
+  let userId = {uID: +req.params.id};
+  db.FavoriteList.findAll({ where: userId})
+    .then(results => {
+      res.status(200).send(results);
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(404);
+    });
+});
+
+// adding a list to the users favorite lists
+app.post('/api/more/users/:id/favorites', (req, res) => {
+  var newList = {
+    name: req.body.name,
+    photoUrl: req.body.photoUrl,
+    favID: req.body.favID,
+    uID: +req.params.id
+  };
+  db.FavoriteList.create(newList)
+    .then(result => {
+      res.status(200).send(result);
+    })
+    .catch(err => {
+      console.log(err);
+    });
+});
+
 // creating new related listing for a listing
 app.post('/api/more/listings/:id', (req, res) => {
   console.log(req.body);
