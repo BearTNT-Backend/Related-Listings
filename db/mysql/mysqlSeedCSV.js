@@ -41,7 +41,6 @@ for (let i = 0; i <= 10000; i++) {
   obj.numOfBeds = Math.ceil(Math.random() * 5);
   obj.photoUrl = photoUrls[Math.floor(Math.random() * photoUrls.length)];
   obj.superhost = faker.random.boolean();
-  obj.favorite = faker.random.boolean();
   obj.rating = (Math.random() * 5).toFixed(2);
   obj.numOfRatings = faker.random.number({'min': 1, 'max': 500});
   obj.description = faker.lorem.sentence();
@@ -56,7 +55,8 @@ for (let i = 0; i <= 500; i++) {
   let obj = {};
   obj.id = i;
   obj.uID = faker.random.number({'min': 0, 'max': 500});
-  favoritesWrite.write(`${obj.id},${obj.uID}\n`, 'utf8');
+  obj.listID = faker.random.number({'min': 0, 'max': 10000});
+  favoritesWrite.write(`${obj.id},${obj.uID},${obj.listID}\n`, 'utf8');
 }
 
 const favoriteListingWrite = fs.createWriteStream('db/favListings.csv');
