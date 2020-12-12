@@ -28,7 +28,15 @@ const FavoriteList = db.define('FavoriteList', {
   photoUrl: Sequelize.STRING,
   favID: Sequelize.INTEGER,
   uID: Sequelize.INTEGER
-});
+},
+{
+  indexes: [
+    {
+      fields: ['uID', 'favID']
+    }
+  ]
+}
+);
 
 
 const Listing = db.define('Listing', {
@@ -42,7 +50,15 @@ const Listing = db.define('Listing', {
   description: Sequelize.STRING,
   price: Sequelize.FLOAT,
   favListID: Sequelize.INTEGER
-});
+},
+{
+  indexes: [
+    {
+      fields: ['favListID']
+    }
+  ]
+}
+);
 
 
 const RelatedListing = db.define('RelatedListing', {
@@ -56,7 +72,15 @@ const RelatedListing = db.define('RelatedListing', {
   description: Sequelize.STRING,
   price: Sequelize.FLOAT,
   listID: Sequelize.INTEGER
-});
+},
+{
+  indexes: [
+    {
+      fields: ['listID']
+    }
+  ]
+}
+);
 
 User.hasMany(Favorite);
 Favorite.belongsTo(User);
