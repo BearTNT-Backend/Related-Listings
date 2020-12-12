@@ -18,7 +18,8 @@ const User = db.define('User', {
 });
 
 const Favorite = db.define('Favorite', {
-  uID: Sequelize.INTEGER
+  uID: Sequelize.INTEGER,
+  listID: Sequelize.INTEGER
 });
 
 
@@ -66,8 +67,8 @@ FavoriteList.belongsTo(User);
 Favorite.hasMany(FavoriteList);
 FavoriteList.belongsTo(Favorite);
 
-FavoriteList.hasMany(Listing);
-Listing.belongsTo(FavoriteList);
+Favorite.hasMany(Listing);
+Listing.belongsTo(Favorite);
 
 Listing.hasMany(RelatedListing);
 RelatedListing.belongsTo(Listing);
