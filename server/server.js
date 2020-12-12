@@ -218,7 +218,7 @@ app.get('/api/more/relatedListings/:id', (req, res) => {
 })
 
 // getting all of the users favorite lists
-app.get('/api/more/users/:id/favorites', (req, res) => {
+app.get('/api/more/users/:id/favoritesLists', (req, res) => {
   let userId = {uID: +req.params.id};
   db.FavoriteList.findAll({ where: userId})
     .then(results => {
@@ -230,8 +230,21 @@ app.get('/api/more/users/:id/favorites', (req, res) => {
     });
 });
 
+app.get('/api/more/users/:id/favorites', (req, res) => {
+  let userId = { uID: +req.params.id };
+  db.Favorite.findAll({ attributes: ['listID'], where: userId})
+    .then(result => {
+      console.log(result);
+      res.status(200).send([+req.params.id, result]);
+    })
+    .catch(err => {
+      console.log(err);
+      res.sendStatus(404);
+    });
+})
+
 // adding a list to the users favorite lists
-app.post('/api/more/users/:id/favorites', (req, res) => {
+app.post('/api/more/users/:id/favoritesLists', (req, res) => {
   var newList = {
     name: req.body.name,
     photoUrl: req.body.photoUrl,
