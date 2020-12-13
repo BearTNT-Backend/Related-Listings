@@ -15,7 +15,7 @@ export var getListing = (id) => {
 export var getUser = (id) => {
   return axios.get(`/api/more/users/${id}/favorites`)
     .then(results => {
-      return ([id, results.data]);
+      return ([id, results.data[1]]);
     })
     .catch(err => {
       console.log(err);
