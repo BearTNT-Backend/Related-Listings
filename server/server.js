@@ -235,7 +235,6 @@ app.get('/api/more/users/:id/favorites', (req, res) => {
   let userId = { uID: +req.params.id };
   db.Favorite.findAll({ attributes: ['listID'], where: userId})
     .then(result => {
-      console.log(result);
       res.status(200).send([+req.params.id, result]);
     })
     .catch(err => {
@@ -291,7 +290,6 @@ app.put('/api/more/relatedListings/:id', (req, res) => {
     where: { id: +req.params.id}
   })
     .then(result => {
-      console.log(result);
       res.status(200).send(result);
     })
     .catch(err => {
@@ -305,7 +303,6 @@ app.delete('/api/more/listings/:lid/relatedListings/:rid', (req, res) => {
   //delete related listing with the rid where listID = lid
   db.RelatedListing.destroy({ where: { id: +req.params.rid, listID: +req.params.lid }})
     .then(result => {
-      console.log(result);
       res.sendStatus(200).send(result);
     })
     .catch(err => {
