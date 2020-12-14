@@ -109,16 +109,17 @@ const App = () => {
     if (document.getElementById(id).style.fill === 'rgb(255, 56, 92)') {
       document.getElementById(id).style.fill = 'rgba(0, 0, 0, .5)';
       const favsCopy = userFavs;
-      loop1:
-      for (let i = 0; i < userFavs.length; i++) {
-        loop2:
-        for (let j = 0; j < userFavs[i].listings.length; j++) {
-          if (id === userFavs[i].listings[j]) {
-            userFavs[i].listings.splice(j, 1);
-            break loop1;
-          }
-        }
-      }
+      console.log(userFavs);
+      // loop1:
+      // for (let i = 0; i < userFavs.length; i++) {
+      //   loop2:
+      //   for (let j = 0; j < userFavs[i].listings.length; j++) {
+      //     if (id === userFavs[i].listings[j]) {
+      //       userFavs[i].listings.splice(j, 1);
+      //       break loop1;
+      //     }
+      //   }
+      // }
       return;
     }
     setFavsShowing(true);
@@ -131,13 +132,13 @@ const App = () => {
   var addToFavList = (name) => {
     document.getElementById(currentId).style.fill = 'rgb(255, 56, 92)';
     let favsCopy = userFavs;
-    for (let i = 0; i < userFavs.length; i++) {
-      if (userFavs[i].name === name) {
-        favsCopy[i].listings.push(currentId);
-        setUserFavs(favsCopy);
-        break;
-      }
-    }
+    // for (let i = 0; i < userFavs.length; i++) {
+    //   if (userFavs[i].name === name) {
+    //     favsCopy[i].listings.push(currentId);
+    //     setUserFavs(favsCopy);
+    //     break;
+    //   }
+    // }
     closeFavs();
   };
 

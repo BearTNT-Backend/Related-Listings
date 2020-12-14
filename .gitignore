@@ -3,5 +3,7 @@
 *.pem
 db/*.csv
 *.log
+newrelic.js
+*.csv
 
 
