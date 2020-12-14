@@ -5,5 +5,7 @@ db/*.csv
 *.log
 newrelic.js
 *.csv
+*.pem
+*.sh
 
 
