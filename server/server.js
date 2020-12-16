@@ -28,6 +28,10 @@ app.get('/listing/*', (req, res) => {
   }
 });
 
+app.get('/loaderio-*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../loaderio-95b3c0224ec9e8a8c15a26330451e8e5.txt'));
+});
+
 // // getting the related listings for a specific listing
 // app.get('/api/more/listings/:id', (req, res) => {
 //   var listingId = req.params.id;

@@ -18,7 +18,8 @@
     "seed:prod": "node ./db/prod_seed.js",
     "start:pm2": "pm2 start ./server/server.js --name service",
     "stop:pm2": "pm2 stop service",
-    "test": "jest"
+    "test": "jest",
+    "production": "webpack --config webpack.prod.config.js && node ./server/server.js"
   },
   "dependencies": {
     "axios": "^0.21.0",

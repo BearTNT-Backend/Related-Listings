@@ -4,7 +4,7 @@ const csvParser = require('csv-parse');
 const mysql = require('mysql');
 const db = mysql.createConnection({
   host: 'localhost',
-  user: 'root',
+  user: 'admin',
   password: 'sudoroot',
   database: 'moreListings'
 });
@@ -32,7 +32,7 @@ db.query(sql1, (err, result) => {
   }
 });
 
-const sql2 = `LOAD DATA LOCAL INFILE './db/favListings.csv' INTO TABLE favoriteLists FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n';`;
+const sql2 = `LOAD DATA LOCAL INFILE './db/favListings.csv' INTO TABLE FavoriteLists FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n';`;
 db.query(sql2, (err, result) => {
   if (err) {
     console.log(err);
@@ -50,7 +50,7 @@ db.query(sql3, (err, result) => {
   }
 });
 
-const sql4 = `LOAD DATA LOCAL INFILE './db/relatedListings.csv' INTO TABLE relatedListings FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n';`;
+const sql4 = `LOAD DATA LOCAL INFILE './db/relatedListings.csv' INTO TABLE RelatedListings FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n';`;
 db.query(sql4, (err, result) => {
   if (err) {
     console.log(err);
