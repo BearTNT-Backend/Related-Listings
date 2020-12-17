@@ -3,7 +3,7 @@ const mysql = require('mysql');
 const con = mysql.createConnection({
   host: 'morelistings.cmbjbzbmto7l.us-east-2.rds.amazonaws.com',
   port: 3306,
-  user: 'root',
+  user: 'admin',
   password: 'sudoroot',
   database: 'moreListings'
 });
