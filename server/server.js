@@ -218,7 +218,7 @@ app.get('/api/more/relatedListings/:id', (req, res) => {
 
 // getting all of the users favorite lists
 app.get('/api/more/users/:id/favoritesLists', (req, res) => {
-  let uID: +req.params.id;
+  let uID = +req.params.id;
   db.getAllUserFavoriteLists(uID, (err, data) => {
     if (err) {
       res.sendStatus(400);
