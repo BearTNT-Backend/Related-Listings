@@ -4,106 +4,107 @@
 // You will also need to change the username and password on line 8
 //   'root' and 'sudoroot' currently
 
-const { Sequelize } = require('sequelize');
+//const { Sequelize } = require('sequelize');
 
-const db = new Sequelize('moreListings', 'root', 'sudoroot',
-  {
-    host: 'localhost',
-    dialect: 'mariadb'
-  }
-);
+const db = require('./login.js');
 
-const User = db.define('User', {
-  userName: Sequelize.STRING
-});
-
-const Favorite = db.define('Favorite', {
-  uID: Sequelize.INTEGER,
-  listID: Sequelize.INTEGER
-});
-
-
-const FavoriteList = db.define('FavoriteList', {
-  name: Sequelize.STRING,
-  photoUrl: Sequelize.STRING,
-  favID: Sequelize.INTEGER,
-  uID: Sequelize.INTEGER
-},
-{
-  indexes: [
-    {
-      fields: ['uID', 'favID']
+let getRelatedListings = (listID, callback) => {
+  let query = `SELECT * FROM RelatedListings WHERE listID = ${listID} LIMIT 12`;
+  db.query(query, (err, res) => {
+    if (err) {
+      console.log('Error', err);
+      callback(err, res);
     }
-  ]
-}
-);
+    callback(null, res);
+  });
+};
 
-
-const Listing = db.define('Listing', {
-  type: Sequelize.STRING,
-  numOfBeds: Sequelize.INTEGER,
-  photoUrl: Sequelize.STRING,
-  superhost: Sequelize.BOOLEAN,
-  favorite: Sequelize.BOOLEAN,
-  rating: Sequelize.FLOAT,
-  numOfRatings: Sequelize.INTEGER,
-  description: Sequelize.STRING,
-  price: Sequelize.FLOAT,
-  favListID: Sequelize.INTEGER
-},
-{
-  indexes: [
-    {
-      fields: ['favListID']
+let getRelatedListing = (id, callback) => {
+  let query = `SELECT * FROM RelatedListings WHERE id = ${id}`;
+  db.query(query, (err, res) => {
+    if (err) {
+      console.log('Error', err);
+      callback(err, res);
     }
-  ]
-}
-);
+    callback(null, res);
+  });
+};
 
-
-const RelatedListing = db.define('RelatedListing', {
-  type: Sequelize.STRING,
-  numOfBeds: Sequelize.INTEGER,
-  photoUrl: Sequelize.STRING,
-  superhost: Sequelize.BOOLEAN,
-  favorite: Sequelize.BOOLEAN,
-  rating: Sequelize.FLOAT,
-  numOfRatings: Sequelize.INTEGER,
-  description: Sequelize.STRING,
-  price: Sequelize.FLOAT,
-  listID: Sequelize.INTEGER
-},
-{
-  indexes: [
-    {
-      fields: ['listID']
+let getAllUserFavoriteLists = (uID, callback) => {
+  let query = `SELECT * FROM FavoriteLists WHERE id = ${uID}`;
+  db.query(query, (err, res) => {
+    if (err) {
+      console.log('Error', err);
+      callback(err, res);
     }
-  ]
-}
-);
+    callback(null, res);
+  });
+};
 
-User.hasMany(Favorite);
-Favorite.belongsTo(User);
+let getUserFavorites = (uID, callback) => {
+  let query = `SELECT listID FROM Favorites WHERE id = ${uID}`;
+  db.query(query, (err, res) => {
+    if (err) {
+      console.log('Error', err);
+      callback(err, res);
+    }
+    callback(null, res);
+  });
+};
 
-User.hasMany(FavoriteList);
-FavoriteList.belongsTo(User);
+let newRelatedListing = (data, callback) => {
+  let values = [data.type, data.numOfBeds, data.photoUrl, data.superhost, data.favorite, data.rating, data.numOfRatings, data.description, data.price, data.listID];
+  let query = `INSERT INTO RelatedListings (type, numOfBeds, photoUrl,     superhost, favorite, rating, numOfRatings, description, price, listID) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
+  db.query(query, values, (err, res) => {
+    if (err) {
+      console.log('Error', err);
+      callback(err, res);
+    }
+    callback(null, res);
+  });
+};
 
-Favorite.hasMany(FavoriteList);
-FavoriteList.belongsTo(Favorite);
+let newFavList = (data, callback) => {
+  let values = [data.name, data.photoUrl, data.favID, data.uID];
+  let query = `INSERT INTO FavoriteLists (name, photoUrl, favID, uID) VALUES (?, ?, ?, ?)`;
+  db.query(query, values, (err, res) => {
+    if (err) {
+      console.log('Error', err);
+      callback(err, res);
+    }
+    callback(null, res);
+  });
+};
 
-Favorite.hasMany(Listing);
-Listing.belongsTo(Favorite);
+let updateRelatedListings = (element, newValue, id, callback) => {
+  let query = `UPDATE RelatedListings SET ${element} = ${newValue} WHERE id = ${id}`;
+  db.query(query, (err, res) => {
+    if (err) {
+      console.log('Error', err);
+      callback(err, res);
+    }
+    callback(null, res);
+  });
+};
 
-Listing.hasMany(RelatedListing);
-RelatedListing.belongsTo(Listing);
-
-db.sync();
+let deleteRelatedListing = (rid, lid, callback) => {
+  let query = `DELETE FROM RelatedListings WHERE id = ${rid} AND listID = ${lid}`;
+  db.query(query, (err, res) => {
+    if (err) {
+      console.log('Error', err);
+      callback(err, res);
+    }
+    callback(null, res);
+  });
+};
 
 module.exports = {
   db,
-  User,
-  Favorite,
-  FavoriteList,
-  Listing,
-  RelatedListing
+  getRelatedListings,
+  getAllUserFavoriteLists,
+  getUserFavorites,
+  newRelatedListing,
+  newFavList,
+  updateRelatedListings,
+  deleteRelatedListing
 };

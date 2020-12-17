@@ -198,54 +198,50 @@ app.get('/loaderio-*', (req, res) => {
 
 // getting the related listings for a specific listing
 app.get('/api/more/listings/:id', (req, res) => {
-  let listingId = {listID: +req.params.id};
-  db.RelatedListing.findAll({ where: listingId, limit: 12})
-    .then(results => {
-      res.status(200).send(results);
-    })
-    .catch(err => {
-      console.log(err);
-      res.status(404);
-    });
+  let listID = +req.params.id;
+  db.getRelatedListings(listID, (err, data) => {
+    if (err) {
+      res.sendStatus(400);
+    } else {
+      res.status(200).json(data);
+    }
+  });
 });
 
 // get single related listing using related listing id
 app.get('/api/more/relatedListings/:id', (req, res) => {
   console.log(req.params.id);
-  db.RelatedListing.findOne({ where: { id: +req.params.id }})
-    .then(results => {
-      res.status(200).send(results);
-    })
-    .catch(err => {
-      console.log(err);
-      res.status(404);
-    })
-})
+  db.getRelatedListing(id, (err, data) => {
+    if (err) {
+      res.sendStatus(400);
+    } else {
+      res.status(200).json(data);
+    }
+  });
+});
 
 // getting all of the users favorite lists
 app.get('/api/more/users/:id/favoritesLists', (req, res) => {
-  let userId = {uID: +req.params.id};
-  db.FavoriteList.findAll({ where: userId})
-    .then(results => {
-      res.status(200).send(results);
-    })
-    .catch(err => {
-      console.log(err);
-      res.status(404);
-    });
+  let uID = +req.params.id;
+  db.getAllUserFavoriteLists(uID, (err, data) => {
+    if (err) {
+      res.sendStatus(400);
+    } else {
+      res.status(200).json(data);
+    }
+  });
 });
 
 app.get('/api/more/users/:id/favorites', (req, res) => {
-  let userId = { uID: +req.params.id };
-  db.Favorite.findAll({ attributes: ['listID'], where: userId})
-    .then(result => {
-      res.status(200).send([+req.params.id, result]);
-    })
-    .catch(err => {
-      console.log(err);
-      res.sendStatus(404);
-    });
-})
+  let uID = +req.params.id;
+  db.getUserFavorites(uID, (err, data) => {
+    if (err) {
+      res.sendStatus(400);
+    } else {
+      res.status(200).send([+req.params.id, data]);
+    }
+  });
+});
 
 // adding a list to the users favorite lists
 app.post('/api/more/users/:id/favoritesLists', (req, res) => {
@@ -255,22 +251,23 @@ app.post('/api/more/users/:id/favoritesLists', (req, res) => {
     favID: req.body.favID,
     uID: +req.params.id
   };
-  db.FavoriteList.create(newList)
-    .then(result => {
-      res.status(200).send(result);
-    })
-    .catch(err => {
-      console.log(err);
-    });
+  db.newFavList(newList, (err, data) => {
+    if (err) {
+      res.sendStatus(400);
+    } else {
+      res.status(200).json(data);
+    }
+  });
 });
 
 // creating new related listing for a listing
 app.post('/api/more/listings/:id', (req, res) => {
-  console.log(req.body);
-  let newRelatedListing = {
+  let newRelListing = {
     type: req.body.type,
     numOfBeds: req.body.numOfBeds,
+    photoUrl: req.body.photoUrl,
     superhost: req.body.superhost,
+    favorite: req. body.favorite,
     rating: req.body.rating,
     numOfRatings: req.body.numOfRatings,
     description: req.body.description,
@@ -278,41 +275,36 @@ app.post('/api/more/listings/:id', (req, res) => {
     listID: +req.params.id
   };
 
-  db.RelatedListing.create(newRelatedListing)
-    .then(result => {
-      res.status(200).send(result);
-    })
-    .catch(err => {
-      console.log(err);
-      res.status(404);
-    });
+  db.newRelatedListing(newRelListing, (err, data) => {
+    if (err) {
+      res.sendStatus(400);
+    } else {
+      res.status(201).json(data);
+    }
+  });
 });
 
 // updating a related listing to be a superhost
 app.put('/api/more/relatedListings/:id', (req, res) => {
-  db.RelatedListing.update({ superhost: true }, {
-    where: { id: +req.params.id}
-  })
-    .then(result => {
-      res.status(200).send(result);
-    })
-    .catch(err => {
-      console.log(err);
-      res.status(404);
-    });
+  db.updateRelatedListings('superhost', 'true', +req.params.id, (err, data) => {
+    if (err) {
+      res.sendStatus(400);
+    } else {
+      res.status(200).json(data);
+    }
+  });
 });
 
 // deleting a relatedListing
 app.delete('/api/more/listings/:lid/relatedListings/:rid', (req, res) => {
   //delete related listing with the rid where listID = lid
-  db.RelatedListing.destroy({ where: { id: +req.params.rid, listID: +req.params.lid }})
-    .then(result => {
-      res.sendStatus(200).send(result);
-    })
-    .catch(err => {
-      console.log(err);
-      res.sendStatus(404);
-    });
+  db.deleteRelatedListing(+req.params.rid, +req.params.lid, (err, data) => {
+    if (err) {
+      res.sendStatus(400);
+    } else {
+      res.status(200).json(data);
+    }
+  });
 });
 
 app.listen(port, () => {
