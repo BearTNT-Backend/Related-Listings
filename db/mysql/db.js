@@ -9,7 +9,7 @@
 const db = require('./login.js');
 
 let getRelatedListings = (listID, callback) => {
-  let query = `SELECT * FROM RelatedListings WHERE listID = ${listID} LIMIT 12`;
+  let query = `SELECT * FROM relatedListings WHERE listID = ${listID} LIMIT 12`;
   db.query(query, (err, res) => {
     if (err) {
       console.log('Error', err);
@@ -20,7 +20,7 @@ let getRelatedListings = (listID, callback) => {
 };
 
 let getRelatedListing = (id, callback) => {
-  let query = `SELECT * FROM RelatedListings WHERE id = ${id}`;
+  let query = `SELECT * FROM relatedListings WHERE id = ${id}`;
   db.query(query, (err, res) => {
     if (err) {
       console.log('Error', err);
@@ -31,7 +31,7 @@ let getRelatedListing = (id, callback) => {
 };
 
 let getAllUserFavoriteLists = (uID, callback) => {
-  let query = `SELECT * FROM FavoriteLists WHERE id = ${uID}`;
+  let query = `SELECT * FROM favoriteLists WHERE id = ${uID}`;
   db.query(query, (err, res) => {
     if (err) {
       console.log('Error', err);
@@ -42,7 +42,7 @@ let getAllUserFavoriteLists = (uID, callback) => {
 };
 
 let getUserFavorites = (uID, callback) => {
-  let query = `SELECT listID FROM Favorites WHERE id = ${uID}`;
+  let query = `SELECT listID FROM favorites WHERE id = ${uID}`;
   db.query(query, (err, res) => {
     if (err) {
       console.log('Error', err);
@@ -54,7 +54,7 @@ let getUserFavorites = (uID, callback) => {
 
 let newRelatedListing = (data, callback) => {
   let values = [data.type, data.numOfBeds, data.photoUrl, data.superhost, data.favorite, data.rating, data.numOfRatings, data.description, data.price, data.listID];
-  let query = `INSERT INTO RelatedListings (type, numOfBeds, photoUrl,     superhost, favorite, rating, numOfRatings, description, price, listID) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
+  let query = `INSERT INTO relatedListings (type, numOfBeds, photoUrl,     superhost, favorite, rating, numOfRatings, description, price, listID) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
   db.query(query, values, (err, res) => {
     if (err) {
       console.log('Error', err);
@@ -66,7 +66,7 @@ let newRelatedListing = (data, callback) => {
 
 let newFavList = (data, callback) => {
   let values = [data.name, data.photoUrl, data.favID, data.uID];
-  let query = `INSERT INTO FavoriteLists (name, photoUrl, favID, uID) VALUES (?, ?, ?, ?)`;
+  let query = `INSERT INTO favoriteLists (name, photoUrl, favID, uID) VALUES (?, ?, ?, ?)`;
   db.query(query, values, (err, res) => {
     if (err) {
       console.log('Error', err);
@@ -77,7 +77,7 @@ let newFavList = (data, callback) => {
 };
 
 let updateRelatedListings = (element, newValue, id, callback) => {
-  let query = `UPDATE RelatedListings SET ${element} = ${newValue} WHERE id = ${id}`;
+  let query = `UPDATE relatedListings SET ${element} = ${newValue} WHERE id = ${id}`;
   db.query(query, (err, res) => {
     if (err) {
       console.log('Error', err);
@@ -88,7 +88,7 @@ let updateRelatedListings = (element, newValue, id, callback) => {
 };
 
 let deleteRelatedListing = (rid, lid, callback) => {
-  let query = `DELETE FROM RelatedListings WHERE id = ${rid} AND listID = ${lid}`;
+  let query = `DELETE FROM relatedListings WHERE id = ${rid} AND listID = ${lid}`;
   db.query(query, (err, res) => {
     if (err) {
       console.log('Error', err);
